@@ -10,7 +10,7 @@ function getInput(searchedLoc) {
     searchedLoc = loaction;
   }
   fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${searchedLoc}&days=3&aqi=yes&alerts=yes`
+    `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${searchedLoc}&days=3&aqi=yes&alerts=yes`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -54,7 +54,7 @@ const weatherSummary = {
 
 function updateForecastData(weatherData) {
   locationName.innerText = weatherData.location.name.toUpperCase();
-  currentWeatherBox2.firstElementChild.firstElementChild.setAttribute("src", "http:" + weatherData.current.condition.icon)
+  currentWeatherBox2.firstElementChild.firstElementChild.setAttribute("src", "https:" + weatherData.current.condition.icon)
   currentWeatherBox2.firstElementChild.nextElementSibling.innerText = weatherData.current.temp_c + "°C"
   currentWeatherBox2.firstElementChild.nextElementSibling.nextElementSibling.innerText = weatherData.current.condition.text
 
@@ -96,7 +96,7 @@ function updateForecastData(weatherData) {
         element.nextElementSibling.innerText = hourData.condition.text;
         element.parentElement.previousElementSibling.firstElementChild.setAttribute(
           "src",
-          "http:" + hourData.condition.icon
+          "https:" + hourData.condition.icon
         );
       }
     });
